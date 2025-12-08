@@ -12,7 +12,7 @@ df = pd.DataFrame(data)
 pracownicy_5k=df[df['Pensja']>5000]
 wiek=df.sort_values('Wiek')
 stanowisko =df.groupby('Stanowisko')['Pensja'].mean()
-
+print(df)
 awans= {
     'Id':[2,4],
     'nowe':['Senior programista','Senior programista']
@@ -20,4 +20,6 @@ awans= {
 df_awans = pd.DataFrame(awans)
 df_nowe=pd.merge(df,df_awans, on='Id', how='left')
 print(df_nowe)
-
+df_nowe.to_csv('awans.csv', index=False)
+df_nowe1= pd.read_csv('awans.csv')
+print(df_nowe1)
